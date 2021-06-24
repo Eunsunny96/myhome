@@ -22,10 +22,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item" th:classappend="${munu} == 'home' ? 'active'">
-              <a class="nav-link"  href="#" th:href="@{/}">홈 <span class="sr-only" th:if="${munu} == 'home'">(current)</span></a>
+            <li class="nav-item" th:classappend ="${munu} ==  'home'? 'active'">
+              <a class="nav-link"  href="#" th:href="@{/}">홈 <span class= "sr-only" th:if="${munu} == 'home'">(current)</span></a>
             </li>
-            <li class="nav-item"  th:classappend="${munu} == 'board' ? 'active'">
+            <li class="nav-item" th:classappend="${menu} == 'board'? 'active'">
               <a class="nav-link" href="#" th:href="@{/board/list}">게시판 <span class="sr-only" th:if="${munu} == 'board'">(current)</span></a>
             </li>
             <!-- <li class="nav-item">
