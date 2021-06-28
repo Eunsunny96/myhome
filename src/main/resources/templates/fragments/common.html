@@ -28,14 +28,17 @@
             <li class="nav-item" th:classappend="${menu} == 'board'? 'active'">
               <a class="nav-link" href="#" th:href="@{/board/list}">게시판 <span class="sr-only" th:if="${munu} == 'board'">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
           </ul>
-          <!-- <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> -->
+          <a class="btn btn-secondary mx-2" th:href="@{/account/login}"
+          sec:authorize="!isAuthenticated()">로그인</a>
+          <a class="btn btn-secondary mx-2" th:href="@{/account/register}"
+          sec:authorize="!isAuthenticated()">회원가입</a>
+          <form class="form-inline mx-2" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
+            <span class="text-white" sec:authentication="name">사용자</span>
+            <span class="text-white mx-2" sec:authentication="principal.authorities">권한</span>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+          </form>
+
         </div>
       </div>
     </nav>

@@ -2,7 +2,7 @@ package com.god.myhome.service;
 
 import com.god.myhome.model.Role;
 import com.god.myhome.model.User;
-import com.god.myhome.repository.UserRespository;
+import com.god.myhome.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,22 +11,22 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserRespository userRespository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
 
-    public User Save(User user){
-        String encodedpassword= passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedpassword);
+    public User save(User user) {
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         user.setEnabled(true);
-        Role role= new Role();
+        Role role = new Role();
         role.setId(1l);
         user.getRoles().add(role);
-
-    return userRespository.save(user);
+        return userRepository.save(user);
     }
+
 
 
 }
