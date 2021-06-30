@@ -1,6 +1,5 @@
 package com.god.myhome.controller;
 
-
 import com.god.myhome.model.User;
 import com.god.myhome.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +27,7 @@ public class AccountController {
 
     @PostMapping("/register")
     public String register(User user) {
-        userService.save(user); //userService에 권한을 줌
+        userService.save(user);
         return "redirect:/";
     }
 }
-
